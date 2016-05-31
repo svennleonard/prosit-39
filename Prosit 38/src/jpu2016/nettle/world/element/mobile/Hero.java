@@ -8,7 +8,7 @@ public class Hero extends Mobile {
 	private final Point lastPosition;
 
 	public Hero() {
-		super(new Sprite("☺!", "dragon.jpg"));
+		super(new Sprite("☺!", "heroes.png"));
 		this.lastPosition = new Point();
 		this.lastPosition.setLocation(getPosition().x, getPosition().y);
 	}
