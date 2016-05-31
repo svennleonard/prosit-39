@@ -112,4 +112,8 @@ public final class Nettle implements Runnable {
 	public void setStatement(final Statement statement) {
 		this.statement = statement;
 	}
+
+	public static Nettle getQueryjavacell() {
+		return QueryJavaCell;
+	}
 }
