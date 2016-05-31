@@ -8,44 +8,44 @@ public class Hero extends Mobile {
 	private final Point lastPosition;
 
 	public Hero() {
-		super(new Sprite("☺!", "heroes.png"));
+		super(new Sprite("☺!", "dragon.jpg"));
 		this.lastPosition = new Point();
-		this.lastPosition.setLocation(this.getPosition().x, this.getPosition().y);
+		this.lastPosition.setLocation(getPosition().x, getPosition().y);
 	}
 
-	private void saveLastPosition() {
-		if ((this.lastPosition.getX() != this.getPosition().getX()) || (this.lastPosition.getY() != this.getPosition().getY())) {
-			this.lastPosition.setLocation(this.getPosition().x, this.getPosition().y);
-		}
-	}
-
-	@Override
-	public void moveUp() {
-		this.saveLastPosition();
-		super.moveUp();
-	}
-
-	@Override
-	public void moveLeft() {
-		this.saveLastPosition();
-		super.moveLeft();
+	public void moveBack() {
+		setX(this.lastPosition.x);
+		setY(this.lastPosition.y);
 	}
 
 	@Override
 	public void moveDown() {
-		this.saveLastPosition();
+		saveLastPosition();
 		super.moveDown();
 	}
 
 	@Override
+	public void moveLeft() {
+		saveLastPosition();
+		super.moveLeft();
+	}
+
+	@Override
 	public void moveRight() {
-		this.saveLastPosition();
+		saveLastPosition();
 		super.moveRight();
 	}
 
-	public void moveBack() {
-		this.setX(this.lastPosition.x);
-		this.setY(this.lastPosition.y);
+	@Override
+	public void moveUp() {
+		saveLastPosition();
+		super.moveUp();
+	}
+
+	private void saveLastPosition() {
+		if ((this.lastPosition.getX() != getPosition().getX()) || (this.lastPosition.getY() != getPosition().getY())) {
+			this.lastPosition.setLocation(getPosition().x, getPosition().y);
+		}
 	}
 
 }
